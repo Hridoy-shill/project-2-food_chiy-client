@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div>
+        <div className='bg-slate-400'>
             <p>this is navbar</p>
         </div>
     );

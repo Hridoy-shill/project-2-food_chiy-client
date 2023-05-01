@@ -13,7 +13,8 @@ const router = createBrowserRouter([
                 element:<Home></Home>
             },
         ]
-    }
+    },
+    
 ])
 
 export default router;
