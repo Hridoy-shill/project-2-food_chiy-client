@@ -19,8 +19,8 @@ const Navbar = () => {
             <div className='flex items-center'>
                 <img className='w-10 h-10 rounded-full  me-5' src={img} alt="" title={user.name}/>
                 { user.name ?
-                    <button className='bg-orange-400 font-bold text-lg px-5 py-2 rounded'>logIn</button> :
-                    <button className='bg-orange-400 font-bold text-lg px-5 py-2 rounded'>logOut</button>
+                    <button className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>logOut</button> :
+                    <button className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>login</button>
                 }
             </div>
         </div>
