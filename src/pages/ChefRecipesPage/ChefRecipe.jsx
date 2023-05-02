@@ -14,7 +14,7 @@ const ChefRecipe = ({ recipe }) => {
                     <p className='font-bold text-2xl border-b-4 border-orange-400 w-fit pb-2'>{recipe_name}</p>
                     <p className='mt-2 font-semibold text-base'>{cooking_mathod}</p>
                     <p className='font-bold text-2xl border-b-4 border-orange-400 w-fit pb-2 mt-3'>Ingredients</p>
-                    <p className='mt-2'>{ingredients.map(li => <li className='font-bold'>{li}</li>)}</p>
+                    <p className='mt-2'>{ingredients.map(li => <li key={li} className='font-bold'>{li}</li>)}</p>
                     <p className='font-bold text-2xl border-b-4 border-orange-400 w-fit pb-2 mt-3'>Ratings</p>
                     <p>{rating}</p>
                 </div>
