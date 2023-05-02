@@ -3,13 +3,13 @@ import { FaFire } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const ChefDetails = ({ chef }) => {
-    console.log(chef,);
+    // console.log(chef);
     const { id, ChefName, ChefPicture, Likes, NumberOfRecipes, YearsOfExperience } = chef
     return (
         <div className='border-2 border-orange-400 w-fit p-5 rounded'>
             <img src={ChefPicture} alt="" className='w-full rounded' />
             <p className='font-bold text-xl mt-3'>Name: {ChefName}.</p>
-            <p className='font-bold text-xl mt-3'>Experience: {YearsOfExperience}.</p>
+            <p className='font-bold text-xl mt-3'>Experience: {YearsOfExperience} years.</p>
             <p className='font-bold text-xl mt-3'>Recipes: {NumberOfRecipes}.</p>
             <p className='font-bold text-xl mt-3'>Total Likes: {Likes}.</p>
             <Link to={`/recipes/${id}`}>

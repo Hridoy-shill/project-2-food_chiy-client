@@ -9,7 +9,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='flex justify-between items-center px-8 py-3'>
+        <div className='flex justify-between items-center px-8 py-3 border-b-2 border-orange-400 mb-4'>
             <p><span className='text-5xl font-bold'>F<span className='font-extrabold text-orange-400'>oo</span>d</span> <span className='text-2xl'>City</span></p>
             <div className='flex space-x-4 items-center'>
                 <Link to={'/'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Home</Link>
