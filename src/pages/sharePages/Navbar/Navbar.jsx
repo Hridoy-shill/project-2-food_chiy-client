@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className='flex justify-between items-center px-8 py-3'>
             <p><span className='text-5xl font-bold'>F<span className='font-extrabold text-orange-400'>oo</span>d</span> <span className='text-2xl'>City</span></p>
             <div className='flex space-x-4 items-center'>
-                <Link className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>links</Link>
+                <Link to={'/'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Home</Link>
                 <Link className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>links</Link>
                 <Link to={'/blog'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Blog</Link>
             </div>
