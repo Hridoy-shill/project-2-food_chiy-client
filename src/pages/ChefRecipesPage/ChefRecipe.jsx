@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaGratipay } from "react-icons/fa";
+import { FaGratipay, FaStar } from "react-icons/fa";
+import Rating from 'react-rating';
 
 const ChefRecipe = ({ recipe }) => {
     // console.log(recipe);
@@ -17,7 +18,19 @@ const ChefRecipe = ({ recipe }) => {
                     <p className='mt-2'>{ingredients.map(li => <li key={li} className='font-bold'>{li}</li>)}</p>
                     <p className='font-bold text-2xl border-b-4 border-orange-400 w-fit pb-2 mt-3'>Ratings</p>
                     <div className='flex justify-between items-center'>
-                        <p>{rating}</p>
+                        <div className='flex items-center'>
+                            <p>
+                                <Rating
+                                    initialRating={rating}
+                                    placeholderRating={<FaStar></FaStar>}
+                                    readonly
+                                    emptySymbol={<FaStar className='text-gray-500'></FaStar>}
+                                    placeholderSymbol={<FaStar></FaStar>}
+                                    fullSymbol={<FaStar className='text-orange-400'></FaStar>}>
+                                </Rating>
+                            </p>
+                            <p className='font-bold ms-2'>({rating})</p>
+                        </div>
                         <button className='btn text-base text-black bg-orange-400 border-none mt-10 hover:bg-orange-400'>Add to Favorite<FaGratipay className='ms-2'></FaGratipay></button>
                     </div>
                 </div>
