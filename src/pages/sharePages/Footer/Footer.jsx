@@ -3,7 +3,7 @@ import { FaGoogle, FaFacebook, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className='bg-slate-300'>
+        <div className='bg-slate-300 mt-20'>
             <footer className="footer p-10 bg-black text-white">
                 <div>
                     <span className="footer-title">Services</span>

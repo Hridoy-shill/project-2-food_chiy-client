@@ -3,13 +3,14 @@ import { Form, Link } from 'react-router-dom';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import Footer from '../sharePages/Footer/Footer';
 
 
 const RegisterPage = () => {
 
     const [error, setError] = useState('')
 
-    const { createNewUser, auth } = useContext(AuthContext)
+    const { createNewUser } = useContext(AuthContext)
 
     const handleRegister = event => {
         event.preventDefault();
@@ -77,6 +78,8 @@ const RegisterPage = () => {
                     <p className='font-bold'>Already have an Account? <Link to={'/login'} className='text-orange-400 underline'>Login</Link></p>
                 </div>
             </Form>
+
+            <Footer></Footer>
         </div>
     );
 };

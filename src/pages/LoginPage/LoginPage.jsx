@@ -3,6 +3,7 @@ import Navbar from '../sharePages/Navbar/Navbar';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Footer from '../sharePages/Footer/Footer';
 
 const LoginPage = () => {
 
@@ -71,6 +72,8 @@ const LoginPage = () => {
                 <button onClick={handleGitHubLogIn} className='btn btn-outline font-bold'>Login with gitHub <FaGithub className='text-lg font bold ms-2'></FaGithub></button>
             </div>
             <p className='text-lg font-semibold text-center mt-4  mb-3'>Dont’t Have An Account ? <Link to={'/register'} className='font-bold text-lg text-orange-400 underline'>Register</Link></p>
+
+            <Footer></Footer>
         </div>
     );
 };
