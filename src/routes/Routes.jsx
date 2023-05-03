@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import ChefRecipe from "../pages/ChefRecipesPage/ChefRecipes";
 import AboutUs from "../pages/AboutUsPage/AboutUs";
+import PrivetRoute from "./PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
     
     {
         path:'/recipes/:id',
-        element:<ChefRecipe></ChefRecipe>,
+        element:<PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
         loader: ({params}) => fetch(`https://food-city-server-hridoy-shill.vercel.app/recipes/${params.id}`)
     },
 

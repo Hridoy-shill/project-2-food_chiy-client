@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Footer from '../sharePages/Footer/Footer';
 
 const LoginPage = () => {
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const navigate = useNavigate(); 
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
     
     const { user, logInUser, loginWithGoogle, loginWithGitHub } = useContext(AuthContext)
     console.log(user);
@@ -22,6 +26,7 @@ const LoginPage = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
+                navigate(from, {replace: true})
                 form.reset();
             })
             .catch(error => setError(error.message))
@@ -32,7 +37,7 @@ const LoginPage = () => {
 
         .then(result => {
             const loggedUser = result.loggedUser;
-            console.log(loggedUser);
+            navigate(from, {replace: true})
         })
         .catch(error => setError(error.message))
     }
@@ -41,7 +46,7 @@ const LoginPage = () => {
         loginWithGitHub()
         .then(result => {
             const loggedUser = result.loggedUser;
-            console.log(loggedUser);
+            navigate(from, {replace: true})
         })
         .catch(error => setError(error.message))
     }

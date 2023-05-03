@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { useLoaderData, useParams } from 'react-router-dom';
 import ChefRecipe from './ChefRecipe';
+import Footer from '../sharePages/Footer/Footer';
 
 
 const ChefRecipes = () => {
@@ -20,7 +21,7 @@ const ChefRecipes = () => {
                     <p className='mt-5 font-bold text-xl'>Total Recipes: {NumberOfRecipes}.</p>
                     <p className='mt-5 font-bold text-xl'>Like: {Likes}.</p>
 
-                    
+
                 </div>
                 <div className='w-full'>
                     <img className='border-8 border-orange-400 rounded' src={ChefPicture} alt="Album" />
@@ -33,6 +34,7 @@ const ChefRecipes = () => {
                     recipes.map(recipe => <ChefRecipe key={recipe.unic_id} recipe={recipe}></ChefRecipe>)
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };
