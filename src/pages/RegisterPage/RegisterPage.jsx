@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Form, Link } from 'react-router-dom';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { AuthContext } from '../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+
 
 const RegisterPage = () => {
 
-    const {createNewUser} = useContext(AuthContext)
+    const [error, setError] = useState('')
 
-    const handleRegister = event =>{
+    const { createNewUser, auth } = useContext(AuthContext)
+
+    const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -16,13 +20,28 @@ const RegisterPage = () => {
         const password = form.password.value;
 
         createNewUser(email, password)
-        .then(result => {
-            const newUser = result.user;
-            console.log(newUser);
-            form.reset()
-            // tost dekate hobe
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                updateUser(result.user, name, photo)
+                form.reset()
+                setError('')
+                
+                // tost dekate hobe
+            })
+            .catch(error => setError(error.message))
+    }
+
+    const updateUser = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
         })
-        .catch(error => console.log(error))
+
+        .then(()=>{})
+        .catch(error=>{
+            setError(error.message);
+        })
     }
 
     return (
@@ -33,24 +52,25 @@ const RegisterPage = () => {
                 <hr />
                 <div className='flex flex-col my-3'>
                     <label htmlFor="" className='font-bold text-xl'>Your Name</label>
-                    <input className='bg-gray-100 p-3 mt-3' type="text" name="name" id="" placeholder='Enter your name' required/>
+                    <input className='bg-gray-100 p-3 mt-3' type="text" name="name" id="name" placeholder='Enter your name' required />
                 </div>
                 <div className='flex flex-col my-3'>
                     <label htmlFor="" className='font-bold text-xl'>Photo URL</label>
-                    <input className='bg-gray-100 p-3 mt-3' type="file" name="photo" id="" placeholder='' />
+                    <input className='bg-gray-100 p-3 mt-3' type="text" name="photo" id="" placeholder='' />
                 </div>
                 <div className='flex flex-col my-3'>
                     <label htmlFor="" className='font-bold text-xl'>Email address</label>
-                    <input className='bg-gray-100 p-3 mt-3' type="email" name="email" id="" placeholder='Enter your email address' required/>
+                    <input className='bg-gray-100 p-3 mt-3' type="email" name="email" id="" placeholder='Enter your email address' required />
                 </div>
                 <div className='flex flex-col my-3'>
                     <label htmlFor="" className='font-bold text-xl'>Password</label>
-                    <input className='bg-gray-100 p-3 mt-3' type="password" name="password" id="" placeholder='Enter your password' required/>
+                    <input className='bg-gray-100 p-3 mt-3' type="password" name="password" id="" placeholder='Enter your password' required />
                 </div>
                 <div className='flex'>
-                    <input type="checkbox" className='checkbox' name="checkbox" id="" required/>
+                    <input type="checkbox" className='checkbox' name="checkbox" id="" required />
                     <p className='ms-2'>Accept Term & Conditions</p>
                 </div>
+                <p className='text-red-600 font-bold mt-3'>{error}</p>
                 <div className='text-center'>
                     <button className='btn w-full bg-orange-400 font-bold hover:bg-orange-400 border-none mt-5'>Register</button>
                     <p className='font-bold text-xl'>or</p>

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import img from '../../../assets/png-transparent-uber-eats-muncheez-delivery-online-food-ordering-food-delivery-food-logo-uber-eats.png'
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
@@ -24,7 +23,7 @@ const Navbar = () => {
                 <Link to={'/blog'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Blog</Link>
             </div>
             <div className='flex items-center'>
-                {user ? <img className='w-10 h-10 rounded-full  me-5' src={img} alt="" title={user} /> : <></>}
+                {user ? <img className='w-10 h-10 rounded-full  me-5' src={user.photoURL} alt="" title={user.displayName} /> : <></>}
                 {user ?
                     <button onClick={handleLogOut} className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>logOut</button> :
                     <Link to={'/login'}>
