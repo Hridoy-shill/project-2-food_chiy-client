@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../../assets/png-transparent-uber-eats-muncheez-delivery-online-food-ordering-food-delivery-food-logo-uber-eats.png'
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
 
-    const user = {
-        name: "hridoy"
-    }
+    const {user} = useContext(AuthContext)
 
     return (
         <div className='flex justify-between items-center px-8 py-3 border-b-2 border-orange-400 mb-4'>
