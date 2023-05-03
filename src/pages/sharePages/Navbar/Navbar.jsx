@@ -17,9 +17,9 @@ const Navbar = () => {
             <Link to={'/'}>
                 <p><span className='text-5xl font-bold'>F<span className='font-extrabold text-orange-400'>oo</span>d</span> <span className='text-2xl'>City</span></p>
             </Link>
-            <div className='flex space-x-4 items-center'>
+            <div className='flex space-x-6 items-center'>
                 <Link to={'/'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Home</Link>
-                <Link className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>links</Link>
+                <Link to={'/about'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>About-Us</Link>
                 <Link to={'/blog'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Blog</Link>
             </div>
             <div className='flex items-center'>
