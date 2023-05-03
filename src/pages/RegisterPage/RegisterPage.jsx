@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import Navbar from '../sharePages/Navbar/Navbar';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const RegisterPage = () => {
+
+    const {createNewUser} = useContext(AuthContext)
+
+    const handleRegister = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createNewUser(email, password)
+        .then(result => {
+            const newUser = result.user;
+            console.log(newUser);
+            form.reset()
+            // tost dekate hobe
+        })
+        .catch(error => console.log(error))
+    }
+
     return (
         <div>
             <Navbar></Navbar>
-            <Form className='w-2/4 mx-auto p-4'>
+            <Form onSubmit={handleRegister} className='w-2/4 mx-auto p-4'>
                 <p className='text-3xl font-bold border-black pb-6 text-center '>Register your account</p>
                 <hr />
                 <div className='flex flex-col my-3'>

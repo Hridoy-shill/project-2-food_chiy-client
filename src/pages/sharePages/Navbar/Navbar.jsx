@@ -5,7 +5,13 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
 
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
 
     return (
         <div className='flex justify-between items-center px-8 py-3 border-b-2 border-orange-400 mb-4'>
@@ -18,9 +24,9 @@ const Navbar = () => {
                 <Link to={'/blog'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Blog</Link>
             </div>
             <div className='flex items-center'>
-                {user.name ? <img className='w-10 h-10 rounded-full  me-5' src={img} alt="" title={user.name} /> : <p>nai</p>}
-                {user.name ?
-                    <button className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>logOut</button> :
+                {user ? <img className='w-10 h-10 rounded-full  me-5' src={img} alt="" title={user} /> : <></>}
+                {user ?
+                    <button onClick={handleLogOut} className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>logOut</button> :
                     <Link to={'/login'}>
                         <button className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>login</button>
                     </Link>
