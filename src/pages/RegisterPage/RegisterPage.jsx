@@ -1,5 +1,5 @@
 import React, { useContext,useState } from 'react';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Form, Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
@@ -11,7 +11,8 @@ const RegisterPage = () => {
 
     const [error, setError] = useState('')
     const navigate = useNavigate()
-    const from = '/login'
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const { createNewUser } = useContext(AuthContext)
 
     const handleRegister = event => {
