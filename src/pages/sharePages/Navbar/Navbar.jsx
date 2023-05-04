@@ -14,14 +14,13 @@ const Navbar = () => {
 
     return (
         <div className='lg:flex lg:justify-between lg:items-center lg:px-8 p-3 lg:p-0 lg:py-3 border-b-2 border-orange-400 mb-4'>
+
             <Link to={'/'}>
                 <p><span className='text-5xl font-bold'>F<span className='font-extrabold text-orange-400'>oo</span>d</span> <span className='text-2xl'>City</span></p>
             </Link>
+
             <div className='lg:flex space-x-6 lg:items-center my-4 lg:my-0'>
 
-                {/* <li>
-                    <NavLink to={'/'} className={({ isActive }) => (isActive ? 'text-sky-600 text-xl duration-300 font-bold' : 'font-bold hover:text-sky-400 text-gray-500 duration-500')}>Home</NavLink>
-                </li> */}
 
                 <li className='list-none'>
                     <NavLink to={'/'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Home</NavLink>
@@ -34,7 +33,9 @@ const Navbar = () => {
                 <li className='list-none'>
                     <NavLink to={'/blog'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Blog</NavLink>
                 </li>
+
             </div>
+            
             <div className='flex items-center'>
                 {user ? <img className='w-10 h-10 rounded-full  me-5' src={user.photoURL} alt="" title={user.displayName} /> : <></>}
                 {user ?
