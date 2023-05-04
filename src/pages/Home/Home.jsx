@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import bannerImg from '../../assets/banner (2).jpg'
 import { FaAngleDoubleRight, FaAward } from 'react-icons/fa';
-import ChefDetails from './SingleChef/ChefDetails';
+
+const ChefDetails = lazy(() => import('./SingleChef/ChefDetails'))
+
 import img1 from '../../assets/world-food-championships-fb-icon.png'
 import img2 from '../../assets/images.png'
 import img3 from '../../assets/WCA_Logo_Circle_TEST.jpg'
@@ -41,10 +43,11 @@ const Home = () => {
             </div>
             <p className='text-5xl font-bold mt-10 text-center border-t-4 border-b-4 border-orange-400 w-fit mx-auto p-3'>The Chef's</p>
             <div className='grid lg:grid-cols-4 grid-cols-1 gap-3 mt-10'>
-
-                {
-                    !loading && chefs.map(chef => <ChefDetails key={chef.id} chef={chef}></ChefDetails>)
-                }
+                <Suspense fallback={<p>img is loading</p>}>
+                    {
+                        !loading && chefs.map(chef => <ChefDetails key={chef.id} chef={chef}></ChefDetails>)
+                    }
+                </Suspense>
             </div>
 
             <p className='text-5xl font-bold mt-10 text-center border-t-4 border-b-4 border-orange-400 w-fit mx-auto p-3'>Reword's</p>

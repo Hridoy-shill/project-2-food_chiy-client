@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <p className='text-6xl'>hi this is a kela</p>
+      <p className='text-6xl'>hi this is a app</p>
     </>
   )
 }
