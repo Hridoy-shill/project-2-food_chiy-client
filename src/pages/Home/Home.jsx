@@ -8,12 +8,27 @@ import img3 from '../../assets/WCA_Logo_Circle_TEST.jpg'
 
 const Home = () => {
     const [chefs, SetChefs] = useState([]);
+    const [loading, setLoading] = useState(false)
+
+
 
     useEffect(() => {
+
+        setLoading(true)
+
         fetch('https://food-city-server-hridoy-shill.vercel.app/chefs')
             .then(res => res.json())
-            .then(data => SetChefs(data))
+            .then(data => {
+                SetChefs(data)
+                setLoading(false)
+            })
     }, [])
+
+    if (loading) {
+        return <div className='flex justify-center items-center h-screen'>
+            <button className="btn btn-square loading bg-white border-none text-orange-400 font-bold"></button>
+        </div>
+    }
 
     return (
         <div>
@@ -26,8 +41,9 @@ const Home = () => {
             </div>
             <p className='text-5xl font-bold mt-10 text-center border-t-4 border-b-4 border-orange-400 w-fit mx-auto p-3'>The Chef's</p>
             <div className='grid lg:grid-cols-4 grid-cols-1 gap-3 mt-10'>
+
                 {
-                    chefs.map(chef => <ChefDetails key={chef.id} chef={chef}></ChefDetails>)
+                    !loading && chefs.map(chef => <ChefDetails key={chef.id} chef={chef}></ChefDetails>)
                 }
             </div>
 

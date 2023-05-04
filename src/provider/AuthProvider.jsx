@@ -9,40 +9,40 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    const [loading, SetLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const google = new GoogleAuthProvider();
     const gitHub = new GithubAuthProvider()
 
     const createNewUser = (email, password) => {
-        SetLoading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const logInUser = (email, password) => {
-        SetLoading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const loginWithGoogle = () => {
-        SetLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, google);
     }
 
     const loginWithGitHub = () => {
-        SetLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, gitHub);
     }
 
     const logOut = () => {
-        SetLoading(true)
+        setLoading(true)
         return signOut(auth);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             setUser(loggedUser)
-            SetLoading(false)
+            setLoading(false)
         })
 
         return () => {

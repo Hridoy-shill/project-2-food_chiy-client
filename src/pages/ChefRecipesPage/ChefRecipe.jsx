@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaGratipay, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
 
@@ -7,9 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ChefRecipe = ({ recipe }) => {
     // console.log(recipe);
+    const [disabled, setDisable] = useState(false)
     const { cooking_mathod, img, ingredients, rating, recipe_name } = recipe;
 
     const handleFavorite = () =>{
+        setDisable(!disabled)
        toast('Add on favorite list ❤')
     }
 
@@ -39,7 +41,8 @@ const ChefRecipe = ({ recipe }) => {
                             </p>
                             <p className='font-bold ms-2'>({rating})</p>
                         </div>
-                        <button onClick={handleFavorite} className='btn text-base text-black bg-orange-400 border-none mt-10 hover:bg-orange-400'>Add to Favorite<FaGratipay className='ms-2'></FaGratipay></button>
+
+                        <button onClick={handleFavorite} disabled={disabled} className='btn text-base text-black bg-orange-400 border-none mt-10 hover:bg-orange-400'>Add to Favorite<FaGratipay className='ms-2'></FaGratipay></button>
                         <ToastContainer />
                     </div>
                 </div>
