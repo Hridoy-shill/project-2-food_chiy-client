@@ -10,9 +10,6 @@ import Footer from '../sharePages/Footer/Footer';
 const RegisterPage = () => {
 
     const [error, setError] = useState('')
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
     const { createNewUser } = useContext(AuthContext)
 
     const handleRegister = event => {
