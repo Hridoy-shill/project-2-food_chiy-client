@@ -1,15 +1,17 @@
 import React, { useContext,useState } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../sharePages/Navbar/Navbar';
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
 import Footer from '../sharePages/Footer/Footer';
 
 
 const RegisterPage = () => {
 
     const [error, setError] = useState('')
-
+    const navigate = useNavigate()
+    const from = '/login'
     const { createNewUser } = useContext(AuthContext)
 
     const handleRegister = event => {
@@ -27,8 +29,8 @@ const RegisterPage = () => {
                 updateUser(result.user, name, photo)
                 form.reset()
                 setError('')
-                
-                // tost dekate hobe
+                toast('New User Created')
+                navigate(from, {replace: true})
             })
             .catch(error => setError(error.message))
     }
@@ -77,6 +79,7 @@ const RegisterPage = () => {
                     <p className='font-bold text-xl'>or</p>
                     <p className='font-bold'>Already have an Account? <Link to={'/login'} className='text-orange-400 underline'>Login</Link></p>
                 </div>
+                <ToastContainer></ToastContainer>
             </Form>
 
             <Footer></Footer>

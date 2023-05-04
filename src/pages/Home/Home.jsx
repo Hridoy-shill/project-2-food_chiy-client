@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react';
 import bannerImg from '../../assets/banner (2).jpg'
 import { FaAngleDoubleRight, FaAward } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ChefDetails = lazy(() => import('./SingleChef/ChefDetails'))
 
@@ -30,6 +31,10 @@ const Home = () => {
         return <div className='flex justify-center items-center h-screen'>
             <button className="btn btn-square loading bg-white border-none text-orange-400 font-bold"></button>
         </div>
+    }
+
+    const handleSubmit = () =>{
+        toast('Message Sent ✅')
     }
 
     return (
@@ -73,9 +78,10 @@ const Home = () => {
             <p className='text-5xl font-bold mt-10 text-center border-t-4 border-b-4 border-orange-400 w-fit mx-auto p-3'>Contact Us</p>
 
             <div className='flex flex-col lg:p-5 px-5 bg-orange-400 bg-opacity-25 lg:w-2/4 w-full lg:mx-auto mt-10 rounded'>
-                <input type="email" placeholder="Your Eamil" className="input input-bordered input-warning w-full max-w-xs my-3" />
+                <input type="email" placeholder="Your Eamil" className="input input-bordered input-warning w-full max-w-xs my-3"/>
                 <textarea className="textarea textarea-warning h-40" placeholder="Type Here"></textarea>
-                <button className='btn font-bold text-xl bg-orange-400 text-black border-none hover:bg-orange-400 w-fit mt-3 rounded'>Submit</button>
+                <button onClick={handleSubmit} className='btn font-bold text-xl bg-orange-400 text-black border-none hover:bg-orange-400 w-fit mt-3 rounded'>Submit</button>
+                <ToastContainer></ToastContainer>
             </div>
         </div>
     );
