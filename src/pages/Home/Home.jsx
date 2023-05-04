@@ -33,7 +33,7 @@ const Home = () => {
     return (
         <div>
             <img className='lg:w-full lg:h-3/4 relative' src={bannerImg} alt="" />
-            <div className='absolute top-52 left-16'>
+            <div className='absolute lg:top-52 top-72 lg:left-16 left-10'>
                 <p className='font-bold lg:text-6xl text-3xl leading-tight'><span className='text-orange-400'>choose</span> better Food <br />choose better Life..!</p>
                 <div className='mt-4'>
                     <button className='btn text-black font-bold text-xl bg-orange-400 border-none hover:bg-orange-400'>Explore More <FaAngleDoubleRight className='ms-3'></FaAngleDoubleRight></button>

@@ -22,8 +22,8 @@ const Navbar = () => {
             <div className='lg:flex space-x-6 lg:items-center my-4 lg:my-0'>
 
 
-                <li className='list-none'>
-                    <NavLink to={'/'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Home</NavLink>
+                <li className='list-none ms-6 lg:ms-0'>
+                    <NavLink to={'/'} className={({ isActive }) => (isActive ? 'font-bold lg:text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Home</NavLink>
                 </li>
 
                 <li className='list-none'>
@@ -36,7 +36,7 @@ const Navbar = () => {
 
             </div>
             
-            <div className='flex items-center'>
+            <div className='flex items-center mt-8 lg:mt-0'>
                 {user ? <img className='w-10 h-10 rounded-full  me-5' src={user.photoURL} alt="" title={user.displayName} /> : <></>}
                 {user ?
                     <button onClick={handleLogOut} className='bg-orange-400 font-bold text-black btn border-none text-lg rounded hover:bg-orange-400'>logOut</button> :
