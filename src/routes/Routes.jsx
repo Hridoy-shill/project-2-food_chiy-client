@@ -7,12 +7,14 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import ChefRecipe from "../pages/ChefRecipesPage/ChefRecipes";
 import AboutUs from "../pages/AboutUsPage/AboutUs";
 import PrivetRoute from "./PrivetRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

@@ -26,7 +26,7 @@ const ChefRecipe = ({ recipe }) => {
                     <p className='mt-2'>{ingredients.map(li => <li key={li} className='font-bold'>{li}</li>)}</p>
                     <p className='font-bold text-2xl border-b-4 border-orange-400 w-fit pb-2 mt-3'>Ratings</p>
                     <div className='flex justify-between items-center'>
-                        <div className='flex items-center'>
+                        <div className='flex flex-grow items-center'>
                             <p>
                                 <Rating
                                     initialRating={rating}
