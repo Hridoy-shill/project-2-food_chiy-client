@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCi3634R7B7yFIXJH25xhDeCBGPsFwqvLs",
-  authDomain: "food-city-ede80.firebaseapp.com",
-  projectId: "food-city-ede80",
-  storageBucket: "food-city-ede80.appspot.com",
-  messagingSenderId: "189539039729",
-  appId: "1:189539039729:web:406540daec61f13b09ac50"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
