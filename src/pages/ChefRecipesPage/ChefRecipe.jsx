@@ -2,9 +2,17 @@ import React from 'react';
 import { FaGratipay, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ChefRecipe = ({ recipe }) => {
     // console.log(recipe);
     const { cooking_mathod, img, ingredients, rating, recipe_name } = recipe;
+
+    const handleFavorite = () =>{
+       toast('Add on favorite list ❤')
+    }
+
     return (
         <div className='border-2 border-orange-400 rounded mt-10  hover:bg-orange-400 hover:bg-opacity-20 duration-500'>
             <div className="grid grid-cols-3 gap-5">
@@ -31,7 +39,8 @@ const ChefRecipe = ({ recipe }) => {
                             </p>
                             <p className='font-bold ms-2'>({rating})</p>
                         </div>
-                        <button className='btn text-base text-black bg-orange-400 border-none mt-10 hover:bg-orange-400'>Add to Favorite<FaGratipay className='ms-2'></FaGratipay></button>
+                        <button onClick={handleFavorite} className='btn text-base text-black bg-orange-400 border-none mt-10 hover:bg-orange-400'>Add to Favorite<FaGratipay className='ms-2'></FaGratipay></button>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

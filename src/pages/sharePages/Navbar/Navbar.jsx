@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
@@ -18,9 +18,22 @@ const Navbar = () => {
                 <p><span className='text-5xl font-bold'>F<span className='font-extrabold text-orange-400'>oo</span>d</span> <span className='text-2xl'>City</span></p>
             </Link>
             <div className='lg:flex space-x-6 lg:items-center my-4 lg:my-0'>
-                <Link to={'/'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Home</Link>
-                <Link to={'/about'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>About-Us</Link>
-                <Link to={'/blog'} className='font-bold text-lg hover:text-orange-400 duration-300 hover:underline hover:text-xl'>Blog</Link>
+
+                {/* <li>
+                    <NavLink to={'/'} className={({ isActive }) => (isActive ? 'text-sky-600 text-xl duration-300 font-bold' : 'font-bold hover:text-sky-400 text-gray-500 duration-500')}>Home</NavLink>
+                </li> */}
+
+                <li className='list-none'>
+                    <NavLink to={'/'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Home</NavLink>
+                </li>
+
+                <li className='list-none'>
+                    <NavLink to={'/about'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>About-Us</NavLink>
+                </li>
+
+                <li className='list-none'>
+                    <NavLink to={'/blog'} className={({ isActive }) => (isActive ? 'font-bold text-2xl duration-300 text-orange-400' : 'font-bold text-lg')}>Blog</NavLink>
+                </li>
             </div>
             <div className='flex items-center'>
                 {user ? <img className='w-10 h-10 rounded-full  me-5' src={user.photoURL} alt="" title={user.displayName} /> : <></>}
