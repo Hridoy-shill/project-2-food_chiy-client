@@ -28,7 +28,7 @@ const RegisterPage = () => {
                 form.reset()
                 setError('')
                 toast('New User Created')
-                navigate(from, {replace: true})
+               
             })
             .catch(error => setError(error.message))
     }
